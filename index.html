@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>My project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="unity-canvas" tabindex="-1" style="background: #231F20"></canvas>
+<script src="Build/nurshingxr_backend_debug.loader.js"></script>
+<script>
+    window.IsUnityFullscreen = function () {
+      return !!document.fullscreenElement;
+    };
+</script>
+<script>
+    const canvas = document.querySelector("#unity-canvas");
+
+    // 전역에 보관할 Unity 인스턴스
+    let appUnityInstance = null;
+
+    // Unity 쪽에서 호출할 수 있게 전역 함수로 노출
+    window.EnterUnityFullscreen = function () {
+      if (appUnityInstance) {
+        appUnityInstance.SetFullscreen(1);
+      }
+    };
+
+    window.ExitUnityFullscreen = function () {
+      if (appUnityInstance) {
+        appUnityInstance.SetFullscreen(0);
+      }
+    };
+
+    window.ToggleUnityFullscreen = function () {
+      if (!appUnityInstance) return;
+
+      if (document.fullscreenElement) {
+        appUnityInstance.SetFullscreen(0);
+      } else {
+        appUnityInstance.SetFullscreen(1);
+      }
+    };
+
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+      const meta = document.createElement('meta');
+      meta.name = 'viewport';
+      meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+      document.head.appendChild(meta);
+    }
+
+    createUnityInstance(canvas, {
+      arguments: [],
+      dataUrl: "Build/nurshingxr_backend_debug.data",
+      frameworkUrl: "Build/nurshingxr_backend_debug.framework.js",
+      codeUrl: "Build/nurshingxr_backend_debug.wasm",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "DefaultCompany",
+      productName: "My project",
+      productVersion: "0.1.0"
+    }).then((unityInstance) => {
+      appUnityInstance = unityInstance;
+      window.unityInstance = unityInstance;
+
+    }).catch((message) => {
+      alert(message);
+    });
+</script>
+</body>
+</html>
