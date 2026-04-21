@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>My project</title>
+    <title>NursingXRWebGLBuild_01</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <canvas id="unity-canvas" tabindex="-1" style="background: #231F20"></canvas>
-<script src="Build/nurshingxr_backend_debug.loader.js"></script>
+<script src="Build/nurshingxr_webbuild_260408_debug.loader.js"></script>
 <script>
     window.IsUnityFullscreen = function () {
       return !!document.fullscreenElement;
@@ -52,12 +52,12 @@
 
     createUnityInstance(canvas, {
       arguments: [],
-      dataUrl: "Build/nurshingxr_backend_debug.data",
-      frameworkUrl: "Build/nurshingxr_backend_debug.framework.js",
-      codeUrl: "Build/nurshingxr_backend_debug.wasm",
+      dataUrl: "Build/nurshingxr_webbuild_260408_debug.data",
+      frameworkUrl: "Build/nurshingxr_webbuild_260408_debug.framework.js",
+      codeUrl: "Build/nurshingxr_webbuild_260408_debug.wasm",
       streamingAssetsUrl: "StreamingAssets",
       companyName: "DefaultCompany",
-      productName: "My project",
+      productName: "NursingXRWebGLBuild_01",
       productVersion: "0.1.0"
     }).then((unityInstance) => {
       appUnityInstance = unityInstance;
