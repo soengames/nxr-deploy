@@ -8,7 +8,7 @@
 </head>
 <body>
 <canvas id="unity-canvas" tabindex="-1" style="background: #231F20"></canvas>
-<script src="Build/nurshingxr_webbuild_260408_debug.loader.js"></script>
+<script src="Build/webgl_debug.loader.js"></script>
 <script>
     window.IsUnityFullscreen = function () {
       return !!document.fullscreenElement;
@@ -52,9 +52,9 @@
 
     createUnityInstance(canvas, {
       arguments: [],
-      dataUrl: "Build/nurshingxr_webbuild_260408_debug.data",
-      frameworkUrl: "Build/nurshingxr_webbuild_260408_debug.framework.js",
-      codeUrl: "Build/nurshingxr_webbuild_260408_debug.wasm",
+      dataUrl: "Build/webgl_debug.data",
+      frameworkUrl: "Build/webgl_debug.framework.js",
+      codeUrl: "Build/webgl_debug.wasm",
       streamingAssetsUrl: "StreamingAssets",
       companyName: "DefaultCompany",
       productName: "NursingXRWebGLBuild_01",
